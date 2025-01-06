@@ -1,3 +1,4 @@
+import type { RequestHandler } from "express";
 // Load environment variables from .env file
 import "dotenv/config";
 
@@ -13,6 +14,11 @@ import app from "./app";
 const port = process.env.APP_PORT;
 
 // Start the server and listen on the specified port
+
+app.get("/", (req, res) => {
+  res.send("Welcome to Wild Series !");
+});
+
 app
   .listen(port, () => {
     console.info(`Server is listening on port ${port}`);
